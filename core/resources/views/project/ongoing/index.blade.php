@@ -32,7 +32,7 @@
                     <tr>
                         <td>#</td>
                         <td>{{ $project->assessment }}</td>
-                        <td>{{ $project->requester }}</td>
+                        <td>{{ $project->requesterUser->name ??'' }}</td>
                         <td>{{ $project->district }}</td>
                         <td>{{ $project->tehsil }}</td>
                         <td>{{ $project->area }}</td>
@@ -40,7 +40,9 @@
                         <td>{{ $project->proposal_date }}</td>
                         <td>{{ $project->budget_date }}</td>
                         <td>{{ $project->approval_date }}</td>
-                        <td>Action</td>
+                        <td>
+                            <a href="{{ route('project.move.ongoing',$project) }}" class="btn btn-success">Move to On-going</a>
+                        </td>
 
                     </tr>
                 @endforeach

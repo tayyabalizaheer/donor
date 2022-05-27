@@ -6,7 +6,7 @@
         <h5 class="mb-0">Login Pages</h5>
     </div>
     <div class="card-body">
-        <form action="{{ route('users.store') }}" method="POST">
+        <form action="{{ route('users.update',$user) }}" method="POST">
             @include('admin.users.fields')
         </form>
     </div>

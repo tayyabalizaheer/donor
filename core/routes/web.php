@@ -37,10 +37,20 @@ Route::group([ 'middleware' => 'auth'], function () {
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
 
+    Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::post('/users/update/{id}', [UserController::class, 'update'])->name('users.update');
+
+    Route::get('/users/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
+    Route::get('/users/role/delete/{id}/{role}', [UserController::class, 'roleDelete'])->name('user.role.delete');
+
+
+
     Route::group(['prefix' =>'project', 'as' => 'project.'], function () {
         Route::get('/list/{status}', [ProjectController::class, 'index'])->name('index')->where('status', 'new|on-going|completed');
         Route::get('/create', [ProjectController::class, 'create'])->name('create');
-        Route::get('/store', [ProjectController::class, 'store'])->name('store');
+        Route::post('/store', [ProjectController::class, 'store'])->name('store');
+        Route::get('/create/{id}/on-going', [ProjectController::class, 'createOngoing'])->name('move.ongoing');
+        Route::post('/store/{id}/on-going', [ProjectController::class, 'storeOngoing'])->name('store.ongoing');
 
 
     });
