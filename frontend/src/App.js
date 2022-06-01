@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import Views from './views';
 
 function App() {
+  console.log(process.env.REACT_APP_API_URL
+    );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React with me and you
-        </a>
-      </header>
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+      <Views/>
+
     </div>
   );
 }

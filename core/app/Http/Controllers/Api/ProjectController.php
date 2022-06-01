@@ -11,7 +11,7 @@ class ProjectController extends Controller
     //
     public function index(Request $request,$status)
     {
-        $projects = Project::where('status',$status)->paginate(50);
+        $projects = Project::with('requesterUser')->where('status',$status)->paginate(50);
         return response()->json($projects, 200);
     }
 }

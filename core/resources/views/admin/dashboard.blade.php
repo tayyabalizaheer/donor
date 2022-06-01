@@ -10,7 +10,7 @@
                 <div class="col-8">
                     <h2>New Interventions</h2>
                     <div class="description">
-                        Details of site, assesments, requesters, locations, testing reports, budget of upcoming projects.
+                        Details of site, assessments, requesters, locations, testing reports, budget of upcoming projects.
                     </div>
                 </div>
             </a>
