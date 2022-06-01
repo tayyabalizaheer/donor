@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-8">New Interventions</div>
+                <div class="col-8">Update Project</div>
                 <div class="col-4 text-end">
                     <a href="{{ route('project.create') }}" class="btn btn-primary">New</a>
                 </div>
@@ -14,8 +14,15 @@
 
         </div>
         <div class="card-body">
-            <form action="{{ route('project.store') }}" method="POST">
+            <form action="{{ route('project.update',$project) }}" method="POST">
                 @include('project.new.fields')
+                <hr>
+                @include('project.ongoing.fields')
+                <hr>
+                @include('project.completed.fields')
+                <div class="form-group mt-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
 

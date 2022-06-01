@@ -5,19 +5,18 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-8">New Interventions</div>
+                <div class="col-8">Completed Projects</div>
                 <div class="col-4 text-end">
-                    <a href="{{ route('project.create') }}" class="btn btn-primary">Create</a>
+
                 </div>
             </div>
 
 
         </div>
-        <div class="card-body table-responsive">
-            <table class="table ">
+        <div class="card-body">
+            <table class="table">
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
                     <th>Need Assessment</th>
                     <th>Requester</th>
                     <th>District</th>
@@ -32,7 +31,6 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td>#</td>
-                        <td>{{ $project->name }}</td>
                         <td>{{ $project->assessment }}</td>
                         <td>{{ $project->requesterUser->name ??'' }}</td>
                         <td>{{ $project->district }}</td>
@@ -51,10 +49,9 @@
                                     <a href="{{ route('project.edit',$project) }}" class="dropdown-item">
                                         <i class="text-primary">Edit</i>
                                     </a>
-                                    <a href="{{ route('project.move.ongoing',$project) }}" class="dropdown-item">
-                                        <i class="text-success"></i>
-                                        Move to On-going
-                                    </a>
+                                    <a href="{{ route('project.rehabilitation',$project) }}" class="dropdown-item">Add Rehabilitation Record</a>
+                                    <a href="{{ route('project.maintenance',$project) }}" class="dropdown-item">Add Maintenance Record</a>
+                                    <a href="{{ route('project.complaints',$project) }}" class="dropdown-item">Add Complaints Record</a>
                                 </div>
                             </div>
                         </td>

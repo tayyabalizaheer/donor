@@ -49,8 +49,28 @@ Route::group([ 'middleware' => 'auth'], function () {
         Route::get('/list/{status}', [ProjectController::class, 'index'])->name('index')->where('status', 'new|on-going|completed');
         Route::get('/create', [ProjectController::class, 'create'])->name('create');
         Route::post('/store', [ProjectController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [ProjectController::class, 'update'])->name('update');
+
         Route::get('/create/{id}/on-going', [ProjectController::class, 'createOngoing'])->name('move.ongoing');
         Route::post('/store/{id}/on-going', [ProjectController::class, 'storeOngoing'])->name('store.ongoing');
+
+        Route::get('/create/{id}/completed', [ProjectController::class, 'createCompleted'])->name('move.completed');
+        Route::post('/store/{id}/completed', [ProjectController::class, 'storeCompleted'])->name('store.completed');
+
+        Route::get('/rehabilitation/{id}/', [ProjectController::class, 'rehabilitation'])->name('rehabilitation');
+        Route::get('/maintenance/{id}/', [ProjectController::class, 'maintenance'])->name('maintenance');
+        Route::get('/complaints/{id}/', [ProjectController::class, 'complaints'])->name('complaints');
+
+
+        Route::post('/rehabilitation/{id}/', [ProjectController::class, 'rehabilitationStore'])->name('store.rehabilitation');
+        Route::post('/maintenance/{id}/', [ProjectController::class, 'maintenanceStore'])->name('store.maintenance');
+        Route::post('/complaints/{id}/', [ProjectController::class, 'complaintsStore'])->name('store.complaints');
+
+        Route::get('/rehabilitation/{id}/delete', [ProjectController::class, 'rehabilitationDelete'])->name('rehabilitation.delete');
+        Route::get('/maintenance/{id}/delete', [ProjectController::class, 'maintenanceDelete'])->name('maintenance.delete');
+        Route::get('/complaints/{id}/delete', [ProjectController::class, 'complaintsDelete'])->name('complaints.delete');
+
 
 
     });

@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-8">New Interventions</div>
+                <div class="col-8">On Going Project</div>
                 <div class="col-4 text-end">
                     <a href="{{ route('project.create') }}" class="btn btn-primary">Create</a>
                 </div>
@@ -41,7 +41,18 @@
                         <td>{{ $project->budget_date }}</td>
                         <td>{{ $project->approval_date }}</td>
                         <td>
-                            <a href="{{ route('project.move.ongoing',$project) }}" class="btn btn-success">Move to On-going</a>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a href="{{ route('project.edit',$project) }}" class="dropdown-item">
+                                        <i class="text-primary">Edit</i>
+                                    </a>
+                                    <a href="{{ route('project.move.completed',$project) }}" class="dropdown-item">Move to Completed</a>
+                                </div>
+                            </div>
+
                         </td>
 
                     </tr>
@@ -50,7 +61,7 @@
             </table>
         </div>
         <div class="card-footer text-muted">
-            Footer
+            {!! $projects->render()  !!}
         </div>
     </div>
 </div>
