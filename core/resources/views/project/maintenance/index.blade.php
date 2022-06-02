@@ -5,9 +5,9 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-8 d-flex">Rehabilitation Project: <h5 class=" ps-2">{{$project->name}}</h5> </div>
+                <div class="col-8 d-flex">Maintenance Project: <h5 class=" ps-2">{{$project->name}}</h5> </div>
                 <div class="col-4 text-end">
-                    <a href="{{ route('project.rehabilitation.create',$project) }}" class="dropdown-item">Add Rehabilitation Record</a>
+                    <a href="{{ route('project.maintenance.create',$project) }}" class="dropdown-item">Add Maintenance Record</a>
                 </div>
             </div>
         </div>
@@ -19,19 +19,19 @@
                     <th>Details</th>
                     <th>Action</th>
                 </tr>
-                @foreach ($rehabilitations as $rehabilitation)
+                @foreach ($maintenances as $maintenance)
                 <tr>
                     <td>#</td>
-                    <td>{{ $rehabilitation->date }}</td>
-                    <td>{!! $rehabilitation->detail !!}</td>
+                    <td>{{ $maintenance->date }}</td>
+                    <td>{!! $maintenance->detail !!}</td>
                     <td>
                         <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a href="{{ route('project.rehabilitation.edit',$rehabilitation) }}" class="dropdown-item">Edit</a>
-                                <a href="{{ route('project.rehabilitation.delete',$rehabilitation) }}" class="dropdown-item">Delete</a>
+                                <a href="{{ route('project.maintenance.edit',$maintenance) }}" class="dropdown-item">Edit</a>
+                                <a href="{{ route('project.maintenance.delete',$maintenance) }}" class="dropdown-item">Delete</a>
                             </div>
                         </div>
 

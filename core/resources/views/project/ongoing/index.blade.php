@@ -22,10 +22,9 @@
                     <th>District</th>
                     <th>Tehsil</th>
                     <th>Area</th>
-                    <th>Water Quality Testing Report</th>
-                    <th>Proposal Date</th>
-                    <th>Budget Date</th>
-                    <th>Approval Date</th>
+                    <th>Tentive Completion Date</th>
+                    <th>Project Supervisor</th>
+                    <th>Project Coordinator</th>
                     <th>Action</th>
                 </tr>
                 @foreach ($projects as $project)
@@ -36,10 +35,9 @@
                         <td>{{ $project->district }}</td>
                         <td>{{ $project->tehsil }}</td>
                         <td>{{ $project->area }}</td>
-                        <td>{{ $project->quality_report }}</td>
-                        <td>{{ $project->proposal_date }}</td>
-                        <td>{{ $project->budget_date }}</td>
-                        <td>{{ $project->approval_date }}</td>
+                        <td>{{ $project->completion_date }}</td>
+                        <td>{{ $project->supervisorUser->name ?? '' }}</td>
+                        <td>{{ $project->coordinatorUser->name ?? '' }}</td>
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

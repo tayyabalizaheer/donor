@@ -13,7 +13,7 @@
 
 
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table">
                 <tr>
                     <th>#</th>
@@ -22,10 +22,14 @@
                     <th>District</th>
                     <th>Tehsil</th>
                     <th>Area</th>
-                    <th>Water Quality Testing Report</th>
-                    <th>Proposal Date</th>
-                    <th>Budget Date</th>
-                    <th>Approval Date</th>
+                    <th>Installation Date</th>
+                    <th>Rehablitation Due Date</th>
+                    <th>Maintainance Due Date</th>
+                    <th>Rehablitation Log</th>
+                    <th>Maintainance Log</th>
+                    <th>Complaint Log</th>
+                    <th>Benificiaries</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 @foreach ($projects as $project)
@@ -36,10 +40,14 @@
                         <td>{{ $project->district }}</td>
                         <td>{{ $project->tehsil }}</td>
                         <td>{{ $project->area }}</td>
-                        <td>{{ $project->quality_report }}</td>
-                        <td>{{ $project->proposal_date }}</td>
-                        <td>{{ $project->budget_date }}</td>
-                        <td>{{ $project->approval_date }}</td>
+                        <td>{{ $project->installation_date }}</td>
+                        <td>{{ $project->rehabilitation_date }}</td>
+                        <td>{{ $project->maintenance_date }}</td>
+                        <td><a href="{{ route('project.rehabilitation',$project) }}" >View</a></td>
+                        <td><a href="{{ route('project.maintenance',$project) }}" >View</a></td>
+                        <td><a href="{{ route('project.complaints',$project) }}" >View</a></td>
+                        <td>{{ $project->beneficiary }}</td>
+                        <td>{{ $project->condition ?? 'OK' }}</td>
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -49,9 +57,9 @@
                                     <a href="{{ route('project.edit',$project) }}" class="dropdown-item">
                                         <i class="text-primary">Edit</i>
                                     </a>
-                                    <a href="{{ route('project.rehabilitation',$project) }}" class="dropdown-item">Add Rehabilitation Record</a>
-                                    <a href="{{ route('project.maintenance',$project) }}" class="dropdown-item">Add Maintenance Record</a>
-                                    <a href="{{ route('project.complaints',$project) }}" class="dropdown-item">Add Complaints Record</a>
+                                    <a href="{{ route('project.rehabilitation.create',$project) }}" class="dropdown-item">Add Rehabilitation Record</a>
+                                    <a href="{{ route('project.maintenance.create',$project) }}" class="dropdown-item">Add Maintenance Record</a>
+                                    <a href="{{ route('project.complaints.create',$project) }}" class="dropdown-item">Add Complaints Record</a>
                                 </div>
                             </div>
                         </td>

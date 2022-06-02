@@ -1,4 +1,10 @@
 {
+    "laravel_goto_controller.pathController": "/core/app/Http/Controllers",
+    "laravel_goto_view.folders": {
+        "default": "/core/resources/views",
+        "js": "/core/resources/js/Pages",
+        "vendor": "/core/resources/views/vendor"
+    },
     "cSpell.words": [
         "swiper"
     ]

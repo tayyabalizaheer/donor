@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\RehabilitationController;
+use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -58,17 +60,25 @@ Route::group([ 'middleware' => 'auth'], function () {
         Route::get('/create/{id}/completed', [ProjectController::class, 'createCompleted'])->name('move.completed');
         Route::post('/store/{id}/completed', [ProjectController::class, 'storeCompleted'])->name('store.completed');
 
-        Route::get('/rehabilitation/{id}/', [ProjectController::class, 'rehabilitation'])->name('rehabilitation');
-        Route::get('/maintenance/{id}/', [ProjectController::class, 'maintenance'])->name('maintenance');
+        Route::get('/rehabilitation/{id}/', [RehabilitationController::class, 'index'])->name('rehabilitation');
+        Route::get('/rehabilitation/{id}/create', [RehabilitationController::class, 'create'])->name('rehabilitation.create');
+        Route::post('/rehabilitation/{id}/', [RehabilitationController::class, 'store'])->name('rehabilitation.store');
+        Route::get('/rehabilitation/{id}/edit', [RehabilitationController::class, 'edit'])->name('rehabilitation.edit');
+        Route::post('/rehabilitation/{id}/update', [RehabilitationController::class, 'update'])->name('rehabilitation.update');
+        Route::get('/rehabilitation/{id}/delete', [RehabilitationController::class, 'delete'])->name('rehabilitation.delete');
+
+        Route::get('/maintenance/{id}/', [MaintenanceController::class, 'index'])->name('maintenance');
+        Route::get('/maintenance/{id}/create', [MaintenanceController::class, 'create'])->name('maintenance.create');
+        Route::post('/maintenance/{id}/', [MaintenanceController::class, 'store'])->name('maintenance.store');
+        Route::get('/maintenance/{id}/edit', [MaintenanceController::class, 'edit'])->name('maintenance.edit');
+        Route::post('/maintenance/{id}/update', [MaintenanceController::class, 'update'])->name('maintenance.update');
+        Route::get('/maintenance/{id}/delete', [MaintenanceController::class, 'delete'])->name('maintenance.delete');
+
         Route::get('/complaints/{id}/', [ProjectController::class, 'complaints'])->name('complaints');
-
-
-        Route::post('/rehabilitation/{id}/', [ProjectController::class, 'rehabilitationStore'])->name('store.rehabilitation');
-        Route::post('/maintenance/{id}/', [ProjectController::class, 'maintenanceStore'])->name('store.maintenance');
-        Route::post('/complaints/{id}/', [ProjectController::class, 'complaintsStore'])->name('store.complaints');
-
-        Route::get('/rehabilitation/{id}/delete', [ProjectController::class, 'rehabilitationDelete'])->name('rehabilitation.delete');
-        Route::get('/maintenance/{id}/delete', [ProjectController::class, 'maintenanceDelete'])->name('maintenance.delete');
+        Route::get('/complaints/{id}/create', [ProjectController::class, 'complaintsCreate'])->name('complaints.create');
+        Route::post('/complaints/{id}/', [ProjectController::class, 'complaintsStore'])->name('complaints.store');
+        Route::get('/complaints/{id}/edit', [ProjectController::class, 'complaintsEdit'])->name('complaints.edit');
+        Route::post('/complaints/{id}/update', [ProjectController::class, 'complaintsUpdate'])->name('complaints.update');
         Route::get('/complaints/{id}/delete', [ProjectController::class, 'complaintsDelete'])->name('complaints.delete');
 
 

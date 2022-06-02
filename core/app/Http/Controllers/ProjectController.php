@@ -7,7 +7,7 @@ use App\Models\Project;
 use App\Models\Complaint;
 use App\Models\Maintenance;
 use App\Models\Rehabilitation;
-
+use DB;
 use App\Models\User;
 class ProjectController extends Controller
 {
@@ -68,10 +68,6 @@ class ProjectController extends Controller
     }
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'installation_date' => 'required|max:255',
-        ]);
-
         $inputs = $request->except(['_token']);
         $inputs['rehabilitation_date'] = $request->installation_date;
         $inputs['maintenance_date'] = $request->installation_date;
@@ -123,17 +119,12 @@ class ProjectController extends Controller
 
         $inputs = $request->except(['_token']);
         $inputs['status'] = 'completed';
-        $inputs['rehabilitation_date'] = $request->installation_date;
-        $inputs['maintenance_date'] = $request->installation_date;
+        $inputs['rehabilitation_date'] =  date('Y-m-d', strtotime("+3 years", strtotime($request->installation_date)));;
+        $inputs['maintenance_date'] =  date('Y-m-d', strtotime("+3 months", strtotime($request->installation_date)));
         $inputs['condition'] = 'OK';
         Project::where('id',$id)->update($inputs);
         return back()->with('success','Process completed successfully!');
     }
 
-    public function rehabilitation($id)
-    {
-        $project = Project::find($id);
-        $rehabilitations = Rehabilitation::where('project_id',$id)->get();
-        return view('project.rehabilitation.index',compact('project','rehabilitations'));
-    }
+
 }

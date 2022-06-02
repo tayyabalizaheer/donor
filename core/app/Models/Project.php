@@ -23,5 +23,15 @@ class Project extends Model
         return $this->hasOne(User::class, 'id', 'requester');
     }
 
+    public function supervisorUser()
+    {
+        return $this->hasOne(User::class, 'id', 'supervisor');
+    }
+
+    public function coordinatorUser()
+    {
+        return $this->hasOne(User::class, 'id', 'coordinator');
+    }
+
 
 }

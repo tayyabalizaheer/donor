@@ -1,7 +1,7 @@
 @csrf
 
 <div class="form-group">
-    <label for="completion_date">Approval Date</label>
+    <label for="completion_date">Completion Date</label>
     <input type="date" name="completion_date" id="completion_date" class="form-control"
         value="{{ old('completion_date',$project->completion_date) }}">
     @error('completion_date')

@@ -9,6 +9,6 @@ class Rehabilitation extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'id',	'detail',	'date',	'created_at',	'updated_at'
+    'id','project_id',	'detail',	'date',	'created_at',	'updated_at'
     ];
 }
