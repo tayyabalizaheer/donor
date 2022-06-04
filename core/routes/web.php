@@ -11,6 +11,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RehabilitationController;
 use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,7 @@ Route::group([ 'middleware' => 'auth'], function () {
 
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
-    Route::get('/users/{role?}', [UserController::class, 'index'])->name('users')->where('role', 'admin|buyer|seller');
+    Route::get('/users/{role?}', [UserController::class, 'index'])->name('users');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
 
@@ -74,12 +75,12 @@ Route::group([ 'middleware' => 'auth'], function () {
         Route::post('/maintenance/{id}/update', [MaintenanceController::class, 'update'])->name('maintenance.update');
         Route::get('/maintenance/{id}/delete', [MaintenanceController::class, 'delete'])->name('maintenance.delete');
 
-        Route::get('/complaints/{id}/', [ProjectController::class, 'complaints'])->name('complaints');
-        Route::get('/complaints/{id}/create', [ProjectController::class, 'complaintsCreate'])->name('complaints.create');
-        Route::post('/complaints/{id}/', [ProjectController::class, 'complaintsStore'])->name('complaints.store');
-        Route::get('/complaints/{id}/edit', [ProjectController::class, 'complaintsEdit'])->name('complaints.edit');
-        Route::post('/complaints/{id}/update', [ProjectController::class, 'complaintsUpdate'])->name('complaints.update');
-        Route::get('/complaints/{id}/delete', [ProjectController::class, 'complaintsDelete'])->name('complaints.delete');
+        Route::get('/complaint/{id}/', [ComplaintController::class, 'index'])->name('complaint');
+        Route::get('/complaint/{id}/create', [ComplaintController::class, 'create'])->name('complaint.create');
+        Route::post('/complaint/{id}/', [ComplaintController::class, 'store'])->name('complaint.store');
+        Route::get('/complaint/{id}/edit', [ComplaintController::class, 'edit'])->name('complaint.edit');
+        Route::post('/complaint/{id}/update', [ComplaintController::class, 'update'])->name('complaint.update');
+        Route::get('/complaint/{id}/delete', [ComplaintController::class, 'delete'])->name('complaint.delete');
 
 
 

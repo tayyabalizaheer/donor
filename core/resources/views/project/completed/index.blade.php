@@ -45,7 +45,7 @@
                         <td>{{ $project->maintenance_date }}</td>
                         <td><a href="{{ route('project.rehabilitation',$project) }}" >View</a></td>
                         <td><a href="{{ route('project.maintenance',$project) }}" >View</a></td>
-                        <td><a href="{{ route('project.complaints',$project) }}" >View</a></td>
+                        <td><a href="{{ route('project.complaint',$project) }}" >View</a></td>
                         <td>{{ $project->beneficiary }}</td>
                         <td>{{ $project->condition ?? 'OK' }}</td>
                         <td>
@@ -59,7 +59,7 @@
                                     </a>
                                     <a href="{{ route('project.rehabilitation.create',$project) }}" class="dropdown-item">Add Rehabilitation Record</a>
                                     <a href="{{ route('project.maintenance.create',$project) }}" class="dropdown-item">Add Maintenance Record</a>
-                                    <a href="{{ route('project.complaints.create',$project) }}" class="dropdown-item">Add Complaints Record</a>
+                                    <a href="{{ route('project.complaint.create',$project) }}" class="dropdown-item">Add Complaints Record</a>
                                 </div>
                             </div>
                         </td>

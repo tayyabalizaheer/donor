@@ -9,6 +9,6 @@ class Complaint extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'id','project_id',	'detail',	'date',	'created_at',	'updated_at'
+    'id','project_id',	'detail',	'date','status',	'created_at',	'updated_at'
     ];
 }

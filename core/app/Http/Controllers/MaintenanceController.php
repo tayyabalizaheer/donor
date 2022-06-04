@@ -74,7 +74,7 @@ class MaintenanceController extends Controller
             }
             DB::commit();
 
-        } catch (\Throwable $th) {
+        } catch (\Exception $th) {
             DB::rollback();
             return back()->with('error','Something went wrong!');
         }
