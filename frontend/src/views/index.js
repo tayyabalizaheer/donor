@@ -6,7 +6,8 @@ import {
 } from "react-router-dom";
 import Home from './home';
 import NewProject from './newProject';
-import OnGoingProject from './OnGoingProject';
+import OnGoingProject from './OnGoingProject'; 
+import ProjectRehabilitation from './ProjectRehabilitation'; 
 import CompletedProject from './CompletedProject';
 import Layout from '../includes/Layout';
 const Views = () => {
@@ -18,6 +19,7 @@ const Views = () => {
                     <Route path="/new-project" element={<NewProject />} />
                     <Route path="/on-going-project" element={<OnGoingProject />} />
                     <Route path="/completed-project" element={<CompletedProject />} />
+                    <Route path="/project/rehab/:id" element={<ProjectRehabilitation />} />
                 </Routes>
             </Layout>
         </Router>

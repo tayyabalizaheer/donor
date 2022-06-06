@@ -17,8 +17,7 @@
             <table class="table">
                 <tr>
                     <th>#</th>
-                    <th>Need Assessment</th>
-                    <th>Requester</th>
+                    <th>Name</th>
                     <th>District</th>
                     <th>Tehsil</th>
                     <th>Area</th>
@@ -30,8 +29,7 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td>#</td>
-                        <td>{{ $project->assessment }}</td>
-                        <td>{{ $project->requesterUser->name ??'' }}</td>
+                        <td>{{ $project->name }}</td>
                         <td>{{ $project->district }}</td>
                         <td>{{ $project->tehsil }}</td>
                         <td>{{ $project->area }}</td>

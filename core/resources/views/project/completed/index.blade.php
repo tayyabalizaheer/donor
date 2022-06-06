@@ -23,12 +23,12 @@
                     <th>Tehsil</th>
                     <th>Area</th>
                     <th>Installation Date</th>
-                    <th>Rehablitation Due Date</th>
-                    <th>Maintainance Due Date</th>
-                    <th>Rehablitation Log</th>
-                    <th>Maintainance Log</th>
+                    <th>Rehabilitation Due Date</th>
+                    <th>Maintenance Due Date</th>
+                    <th>Rehabilitation Log</th>
+                    <th>Maintenance Log</th>
                     <th>Complaint Log</th>
-                    <th>Benificiaries</th>
+                    <th>Beneficiaries</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>

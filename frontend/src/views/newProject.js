@@ -19,7 +19,6 @@ const NewProject = () => {
                     <div className="card-body">
                         <h4 className="card-title">New Interventions</h4>
                         <h6 className="card-subtitle">Details of site, assessments, requesters, locations, testing reports, budget of upcoming projects.</h6>
-                        <h6>API_URL: {process.env.REACT_APP_API_URL}</h6>
                     </div>
                     <div className="table-responsive">
                         <table className="table">
