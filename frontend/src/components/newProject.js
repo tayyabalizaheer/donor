@@ -38,7 +38,7 @@ const NewProject = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {projects.map((project,index) => (
+                                {projects.length > 0 ? projects.map((project,index) => (
                                     <tr key={project.id}>
                                         <td>{ index + 1}</td>
                                         <td>{ project.name }</td>
@@ -55,7 +55,12 @@ const NewProject = () => {
                                         <td>{ project.budget_date }</td>
                                         <td>{ project.approval_date }</td>
                                     </tr>
-                                ))}
+                                ))
+                                    :
+                                    <tr>
+                                        <th colSpan={11}>No results found</th>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>

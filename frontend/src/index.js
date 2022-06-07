@@ -8,6 +8,7 @@ import "./assets/libs/chartist/dist/chartist.min.css";
 import "./assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css";
 import "./dist/css/style.min.css";
 import "./dist/css/custom.css";
+import "./assets/css/footer.css";
 import { Helmet } from "react-helmet";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

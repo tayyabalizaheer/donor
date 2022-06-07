@@ -12,4 +12,9 @@ class Maintenance extends Model
     protected $fillable = [
     'id','project_id',	'detail',	'date',	'created_at',	'updated_at'
     ];
+
+    public function project()
+    {
+        return $this->hasOne(Project::class, 'id', 'project_id');
+    }
 }

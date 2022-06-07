@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\ComplaintController;
+use App\Http\Controllers\Api\MaintenanceController;
+use App\Http\Controllers\Api\RehabilitationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +21,15 @@ use App\Http\Controllers\Api\ProjectController;
 Route::get('/projects/{status}', [
     ProjectController::class, 'index'
     ])
-    ->name('index')
     ->where('status', 'new|on-going|completed');
+
+Route::get('/projects/rehabilitation/{id}/',
+    [RehabilitationController::class, 'index']
+);
+Route::get('/projects/maintenance/{id}/',
+    [MaintenanceController::class, 'index']
+);
+Route::get('/projects/complaint/{id}/',
+    [ComplaintController::class, 'index']
+);
+

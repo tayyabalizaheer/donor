@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+.dasboard .icons {
+  width: 100%;
+}
+
+
+.dasboard h2 {
+  text-transform: uppercase;
+}
+
+.dasboard .description {
+  background-color: #03c3ec3b !important;
+  color: black;
+  padding: 10px
+}

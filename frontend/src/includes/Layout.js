@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer';
 import Navigation from './Navigation';
 const Layout = ({ children }) => {
     return (
@@ -8,9 +9,10 @@ const Layout = ({ children }) => {
             <div className="navigationWrapper">
                 <Navigation />
                 <div className="page-wrapper">
-                    <div className='container-fluid'>
+                    <div className=''>
                         {children}
                     </div>
+                    <Footer />
                 </div>
             </div>
         </React.Fragment>

@@ -36,7 +36,7 @@
                     <img class="icons" src="{{ assets('images/completed.png') }}" alt="">
                 </div>
                 <div class="col-8">
-                    <h2>on going projects</h2>
+                    <h2>Completed projects</h2>
                     <div class="description">
                         Details of locations, installation date, installed duration, re-habilation date, maintenance of completed projects.
                     </div>
