@@ -8,6 +8,13 @@
     @enderror
 </div>
 <div class="form-group">
+    <label for="location">location</label>
+    <input type="text" name="location" id="location" class="form-control" value="{{ old('location',$complaint->location) }}">
+    @error('location')
+    <span class="text-danger">{{$message}} </span>
+    @enderror
+</div>
+<div class="form-group">
     <label for="status">Status</label>
     <select class="form-control" name="status" data-value="{{ old('status',$complaint->status) }}">
         <option value="new">New</option>

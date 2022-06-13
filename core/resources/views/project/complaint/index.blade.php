@@ -16,13 +16,15 @@
                 <tr>
                     <th>#</th>
                     <th>Date</th>
-                    <th>Details</th>
+                    <th>Location</th>
+                    <th>Complain</th>
                     <th>Action</th>
                 </tr>
                 @foreach ($complaints as $complaint)
                 <tr>
                     <td>#</td>
                     <td>{{ $complaint->date }}</td>
+                    <td>{{ $complaint->location }}</td>
                     <td>{!! $complaint->detail !!}</td>
                     <td>
                         <div class="dropdown">
