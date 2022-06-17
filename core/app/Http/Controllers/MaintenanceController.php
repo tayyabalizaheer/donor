@@ -21,17 +21,39 @@ class MaintenanceController extends Controller
     {
         $project = Project::find($id);
         $maintenance = new Maintenance();
-        return view('project.maintenance.create',compact('project','maintenance'));
+
+        $supervisors = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'supervisor');
+            }
+        )->get();
+        $coordinators = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'coordinator');
+            }
+        )->get();
+        $operators = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'operator');
+            }
+        )->get();
+
+        return view('project.maintenance.create',compact('project','maintenance','supervisors','coordinators','operators'));
     }
 
     public function store(Request $request,$id)
     {
+        // dd($request->all());
         $request->validate([
             'date' => 'required|max:10',
-            'detail' => 'required|max:65000',
         ]);
         $inputs = $request->except(['_token']);
         $inputs['project_id'] = $id;
+        foreach ($inputs as $key => $value) {
+            if(is_array($value)){
+                $inputs[$key] = json_encode($value);
+            }
+        }
         Maintenance::create($inputs);
 
         $project['maintenance_date'] =  date('Y-m-d', strtotime("+3 years", strtotime($request->date)));;
@@ -43,9 +65,25 @@ class MaintenanceController extends Controller
 
     public function edit($id)
     {
-        $maintenance = Maintenance::findOrFail($id);
+        $maintenance = Maintenance::getDetails($id);
+        // dd($maintenance);
         $project = Project::findOrFail($maintenance->project_id);
-        return view('project.maintenance.edit',compact('project','maintenance'));
+        $supervisors = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'supervisor');
+            }
+        )->get();
+        $coordinators = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'coordinator');
+            }
+        )->get();
+        $operators = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'operator');
+            }
+        )->get();
+        return view('project.maintenance.edit',compact('project','maintenance','supervisors','coordinators','operators'));
     }
     public function update(Request $request,$id)
     {

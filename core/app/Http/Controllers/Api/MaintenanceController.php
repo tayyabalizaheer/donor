@@ -18,5 +18,11 @@ class MaintenanceController extends Controller
         return response()->json($maintenances, 200);
     }
 
+    public function show($id)
+    {
+        $maintenance = (object) Maintenance::getDetails($id,['supervisor','coordinator','operator']);
+        return response()->json($maintenance, 200);
+    }
+
 
 }

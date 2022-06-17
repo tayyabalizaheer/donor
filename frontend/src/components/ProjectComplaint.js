@@ -8,9 +8,10 @@ const ProjectComplaint = () => {
             console.log(id);
             const url = process.env.REACT_APP_API_URL + "projects/complaint/"+id;
             const response = await fetch(url );
-            const dataJson = await response.json();
-            setProjects(dataJson.data);
-            console.log(dataJson);
+            await response.json().then(async(res) =>{
+                setProjects(res.data);
+            } );
+            
         };
         getProjects();
     }, []);
@@ -29,7 +30,8 @@ const ProjectComplaint = () => {
                                     <th scope='col'>#</th>
                                     <th scope='col'>Project Name </th>
                                     <th scope='col'>Date</th>
-                                    <th scope='col'>Detail</th>
+                                    <th scope='col'>Location</th>
+                                    <th scope='col'>Complaint</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,7 +39,8 @@ const ProjectComplaint = () => {
                                     <tr key={project.id}>
                                         <td>{index + 1}</td>
                                         <td>{project.project.name }</td>
-                                        <td>{ project.date }</td>
+                                        <td>{project.date}</td>
+                                        <td>{project.location}</td>
                                         <td>{ project.detail }</td>
                                     </tr>
                                 ))

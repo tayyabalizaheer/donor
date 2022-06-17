@@ -14,6 +14,9 @@ import { Helmet } from "react-helmet";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Helmet>
+      <title>Donor App</title>
+    </Helmet>
     <App />
     <Helmet>
       <script src="./assets/libs/jquery/dist/jquery.min.js" type="text/jsx" />

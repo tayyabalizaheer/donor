@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import completedImage from '../assets/images/completed.png';
 import newImage from '../assets/images/new.png';
+import reportImage from '../assets/images/reports.png';
 import onGoingImage from '../assets/images/on-going.png';
 const Home = () => {
     return (
@@ -43,6 +44,20 @@ const Home = () => {
                         <h2>Completed projects</h2>
                         <div  className="description">
                             Details of locations, installation date, installed duration, re-habilation date, maintenance of completed projects.
+                        </div>
+                    </div>
+                </Link>
+            </div>
+
+            <div className="col-lg-8 col-12">
+                <Link className="row" to="/reports" >
+                    <div className="col-2">
+                        <img className="icons" src={reportImage} alt=""></img>
+                    </div>
+                    <div className="col-9">
+                        <h2>Project report</h2>
+                        <div className="description">
+                            Download reports of new Interventions, ongoing projects and completed projects here.
                         </div>
                     </div>
                 </Link>

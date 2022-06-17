@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\ComplaintController;
 use App\Http\Controllers\Api\MaintenanceController;
 use App\Http\Controllers\Api\RehabilitationController;
+use App\Http\Controllers\Api\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,22 @@ Route::get('/projects/rehabilitation/{id}/',
 Route::get('/projects/maintenance/{id}/',
     [MaintenanceController::class, 'index']
 );
+Route::get('/maintenance/details/{id}/',
+    [MaintenanceController::class, 'show']
+);
 Route::get('/projects/complaint/{id}/',
     [ComplaintController::class, 'index']
 );
 
+
+Route::get('/reports/new',
+    [ReportController::class, 'new']
+);
+
+Route::get('/reports/on-going',
+    [ReportController::class, 'onGoing']
+);
+
+Route::get('/reports/completed',
+    [ReportController::class, 'completed']
+);

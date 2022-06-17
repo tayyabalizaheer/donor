@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-8">Add Maintenance Record</div>
+                <div class="col-8">Water Filtration Plants Monitoring Log</div>
                 <div class="col-4">
                     <strong>Project: </strong>{{$project->name}}
                 </div>

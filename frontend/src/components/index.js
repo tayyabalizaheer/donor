@@ -11,7 +11,9 @@ import ProjectRehabilitation from './ProjectRehabilitation';
 import ProjectMaintenance from './ProjectMaintenance';
 import ProjectComplaint from './ProjectComplaint';
 import CompletedProject from './CompletedProject';
+import Reports from './Reports';
 import Layout from '../includes/Layout';
+import MaintenanceDetail from './MaintenanceDetail';
 const Views = () => {
     return (
         <Router>
@@ -24,6 +26,8 @@ const Views = () => {
                     <Route path="/project/rehab/:id" element={<ProjectRehabilitation />} />
                     <Route path="/project/maintenance/:id" element={<ProjectMaintenance />} />
                     <Route path="/project/complaint/:id" element={<ProjectComplaint />} />
+                    <Route path="/maintenance/details/:id" element={<MaintenanceDetail />} />
+                    <Route path="/reports" element={<Reports />} />
                 </Routes>
             </Layout>
         </Router>

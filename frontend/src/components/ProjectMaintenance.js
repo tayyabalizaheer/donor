@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 const ProjectMaintenance = () => {
     const { id } = useParams();
     const [projects, setProjects] = useState([]);
@@ -10,11 +10,11 @@ const ProjectMaintenance = () => {
             const response = await fetch(url );
             const dataJson = await response.json();
             setProjects(dataJson.data);
-            console.log(dataJson);
+            
         };
         getProjects();
+        
     }, []);
-
     return (
         <div className='row'>
             <div className="col-12">
@@ -36,9 +36,9 @@ const ProjectMaintenance = () => {
                                 {projects.length > 0 ? projects.map((project, index) => (
                                     <tr key={project.id}>
                                         <td>{index + 1}</td>
-                                        <td>{project.project.name }</td>
+                                        <td>{project.project.name??'' }</td>
                                         <td>{ project.date }</td>
-                                        <td>{ project.detail }</td>
+                                        <td> <Link to={`/maintenance/details/${project.id}`} >View</Link>  </td>
                                     </tr>
                                 ))
                                 :

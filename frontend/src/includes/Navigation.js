@@ -28,6 +28,10 @@ const Navigation = () => {
                         <li className="sidebar-item">
                             <Link className="sidebar-link sidebar-link" to="/completed-project">Completed project</Link>
                         </li>
+
+                        <li className="sidebar-item">
+                            <Link className="sidebar-link sidebar-link" to="/reports">Project reports</Link>
+                        </li>
                         <li className="list-divider"></li>
                         
                     </ul>

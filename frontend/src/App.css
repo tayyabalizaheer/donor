@@ -50,3 +50,28 @@
   color: black;
   padding: 10px
 }
+
+.maintenance-detail label{
+  padding-right: 10px;
+}
+.maintenance-detail label::after {
+  content: ':';
+}
+
+.reports li{
+  margin-bottom: 30px;
+}
+.reports a{
+  float: right;
+  margin-left: 20px;
+}
+
+.reports a {
+  padding: 5px 15px;
+  background-color: #0090aeba !important;
+  border-radius: 7px;
+  color: white;
+}
+.reports a:hover{
+  color: #a7dae4;
+}

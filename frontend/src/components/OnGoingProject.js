@@ -11,7 +11,6 @@ const OnGoingProject = () => {
         };
         getProjects();
     }, []);
-
     return (
         <div className='row'>
             <div className="col-12">

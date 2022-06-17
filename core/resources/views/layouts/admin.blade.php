@@ -76,6 +76,9 @@
             color: black;
             padding: 10px
         }
+        .text-white th{
+            color: white!important
+        }
     </style>
   </head>
 

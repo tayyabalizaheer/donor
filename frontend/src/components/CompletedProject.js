@@ -55,6 +55,8 @@ const CompletedProject = () => {
                                         <td> <Link to={`/project/rehab/${project.id}`} >View</Link>  </td>
                                         <td> <Link to={`/project/maintenance/${project.id}`} >View</Link>  </td>
                                         <td> <Link to={`/project/complaint/${project.id}`} >View</Link>  </td>
+                                        <td>{project.beneficiary}</td>
+                                        <td>{project.condition}</td>
                                     </tr>
                                 ))
                                     :
