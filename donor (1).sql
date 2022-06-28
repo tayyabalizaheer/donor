@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 27, 2022 at 06:08 AM
+-- Generation Time: Jun 28, 2022 at 11:10 AM
 -- Server version: 5.7.36
 -- PHP Version: 8.0.13
 
@@ -288,6 +288,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `beneficiary` text,
   `status` varchar(255) NOT NULL,
   `condition` varchar(255) DEFAULT NULL,
+  `step` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -297,16 +298,16 @@ CREATE TABLE IF NOT EXISTS `projects` (
 -- Dumping data for table `projects`
 --
 
-INSERT INTO `projects` (`id`, `name`, `assessment`, `requester`, `district`, `tehsil`, `area`, `quality_report`, `proposal_date`, `budget_date`, `approval_date`, `completion_date`, `supervisor`, `coordinator`, `installation_date`, `rehabilitation_date`, `maintenance_date`, `beneficiary`, `status`, `condition`, `created_at`, `updated_at`) VALUES
-(1, 'MacKensie Cox', 'Id in consectetur', 2, 'Aute dolorum aliqua', 'Sit id magnam offici', 'Nulla minim exceptur', 'Ipsum dolor cum in v', '2009-05-07', '2014-12-03', '2002-07-04', '2003-06-18', 3, 3, '2022-06-02', '2025-06-18', '2009-10-22', 'ffuyfufu', 'completed', 'Rehabilitated', '2022-05-27 09:30:48', '2022-06-14 08:12:28'),
-(2, 'Perry Bowen', 'Nihil debitis neque', 2, 'Ratione eos qui poss', 'Accusamus nulla null', 'Est voluptatem con', 'Sit quos in odio pr', '1999-02-07', '2022-04-29', '2014-01-26', '1971-12-30', 2, 3, '2016-06-17', '2016-06-17', '2016-06-17', 'Consequatur aut sunt', 'completed', 'OK', '2022-05-27 09:34:49', '2022-06-02 07:17:57'),
-(3, 'Inez Rhodes', 'Cum nostrud dolore e', 2, 'Sed qui id accusamus', 'Neque nisi iure cum', 'Natus quo sunt null', 'Ipsum minus dolor q', '2004-01-26', '2001-01-02', '2020-07-01', '2022-06-02', 2, 3, '2022-06-03', '2022-06-03', '2022-06-03', 'ffuyfufu', 'completed', 'OK', '2022-05-27 09:34:59', '2022-06-02 07:33:29'),
-(4, 'Dennis Neal', 'Iusto quia quae dolo', 2, 'Quidem dolore ea off', 'Eligendi quia itaque', 'Corporis tempor aute', 'Odio ut veniam tene', '1981-01-25', '2005-12-13', '1991-10-12', '2016-02-04', 2, 3, '2022-06-01', '2025-06-01', '2022-09-01', 'Consequatur aut sunt', 'completed', 'OK', '2022-06-02 07:30:32', '2022-06-02 08:53:20'),
-(5, 'Gillian Nelson', 'Ducimus commodo nem', 2, 'Repellendus Cillum', 'Accusamus voluptatem', 'Consequatur expedit', 'Nisi quasi excepteur', '1971-05-08', '2015-04-29', '1970-03-31', '1979-07-15', 2, 3, NULL, NULL, NULL, NULL, 'on-going', NULL, '2022-06-04 07:39:49', '2022-06-04 07:40:13'),
-(6, 'Sacha Mathews', 'Odio repudiandae ad', 2, 'Velit eaque dolore r', 'Atque pariatur Reru', 'Adipisicing excepteu', 'Qui numquam voluptat', '2001-10-22', '2015-08-28', '1987-11-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new', NULL, '2022-06-04 07:39:57', '2022-06-04 07:39:57'),
-(7, 'Ramona Talley', 'In proident impedit', 2, 'Fugiat vero fugiat', 'Eius aut amet volup', 'Explicabo Eos debit', 'Explicabo Culpa mod', '1976-01-07', '2013-12-12', '1997-04-09', '1998-11-07', 2, 3, NULL, NULL, NULL, NULL, 'on-going', NULL, '2022-06-04 07:40:23', '2022-06-04 07:41:11'),
-(8, 'Kaye Ross', 'Anim ex unde ea inve', 2, 'Minima commodi molli', 'Quia exercitationem', 'Nulla aliquam distin', 'Voluptatem cumque e', '1998-12-10', '1973-07-15', '2007-10-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new', NULL, '2022-06-04 07:40:27', '2022-06-04 07:40:27'),
-(9, 'Lyle Fisher', 'Vero perferendis pra', 2, 'Autem molestias aliq', 'Facilis corrupti do', 'Veniam explicabo I', 'Aut ut quia doloremq', '2001-08-04', '1998-04-22', '2009-05-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new', NULL, '2022-06-04 07:40:31', '2022-06-04 07:40:31');
+INSERT INTO `projects` (`id`, `name`, `assessment`, `requester`, `district`, `tehsil`, `area`, `quality_report`, `proposal_date`, `budget_date`, `approval_date`, `completion_date`, `supervisor`, `coordinator`, `installation_date`, `rehabilitation_date`, `maintenance_date`, `beneficiary`, `status`, `condition`, `step`, `created_at`, `updated_at`) VALUES
+(1, 'MacKensie Cox', 'Id in consectetur', 2, 'Aute dolorum aliqua', 'Sit id magnam offici', 'Nulla minim exceptur', 'Ipsum dolor cum in v', '2009-05-07', '2014-12-03', '2002-07-04', '2003-06-18', 3, 3, '2022-06-02', '2025-06-18', '2009-10-22', 'ffuyfufu', 'completed', 'Rehabilitated', '', '2022-05-27 09:30:48', '2022-06-14 08:12:28'),
+(2, 'Perry Bowen', 'Nihil debitis neque', 2, 'Ratione eos qui poss', 'Accusamus nulla null', 'Est voluptatem con', 'Sit quos in odio pr', '1999-02-07', '2022-04-29', '2014-01-26', '1971-12-30', 2, 3, '2016-06-17', '2016-06-17', '2016-06-17', 'Consequatur aut sunt', 'completed', 'OK', '', '2022-05-27 09:34:49', '2022-06-02 07:17:57'),
+(3, 'Inez Rhodes', 'Cum nostrud dolore e', 2, 'Sed qui id accusamus', 'Neque nisi iure cum', 'Natus quo sunt null', 'Ipsum minus dolor q', '2004-01-26', '2001-01-02', '2020-07-01', '2022-06-02', 2, 3, '2022-06-03', '2022-06-03', '2022-06-03', 'ffuyfufu', 'completed', 'OK', '', '2022-05-27 09:34:59', '2022-06-02 07:33:29'),
+(4, 'Dennis Neal', 'Iusto quia quae dolo', 2, 'Quidem dolore ea off', 'Eligendi quia itaque', 'Corporis tempor aute', 'Odio ut veniam tene', '1981-01-25', '2005-12-13', '1991-10-12', '2016-02-04', 2, 3, '2022-06-01', '2025-06-01', '2022-09-01', 'Consequatur aut sunt', 'completed', 'OK', '', '2022-06-02 07:30:32', '2022-06-02 08:53:20'),
+(5, 'Gillian Nelson', 'Ducimus commodo nem', 2, 'Repellendus Cillum', 'Accusamus voluptatem', 'Consequatur expedit', 'Nisi quasi excepteur', '1971-05-08', '2015-04-29', '1970-03-31', '1979-07-15', 2, 3, NULL, NULL, NULL, NULL, 'on-going', NULL, '', '2022-06-04 07:39:49', '2022-06-04 07:40:13'),
+(6, 'Sacha Mathews', 'Odio repudiandae ad', 2, 'Velit eaque dolore r', 'Atque pariatur Reru', 'Adipisicing excepteu', 'Qui numquam voluptat', '2001-10-22', '2015-08-28', '1987-11-13', '2022-06-29', 2, 3, NULL, NULL, NULL, NULL, 'on-going', NULL, 'Site Assessment', '2022-06-04 07:39:57', '2022-06-28 04:16:26'),
+(7, 'Ramona Talley', 'In proident impedit', 2, 'Fugiat vero fugiat', 'Eius aut amet volup', 'Explicabo Eos debit', 'Explicabo Culpa mod', '1976-01-07', '2013-12-12', '1997-04-09', '1998-11-07', 2, 3, NULL, NULL, NULL, NULL, 'on-going', NULL, '', '2022-06-04 07:40:23', '2022-06-04 07:41:11'),
+(8, 'Kaye Ross', 'Anim ex unde ea inve', 2, 'Minima commodi molli', 'Quia exercitationem', 'Nulla aliquam distin', 'Voluptatem cumque e', '1998-12-10', '1973-07-15', '2007-10-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new', NULL, '', '2022-06-04 07:40:27', '2022-06-04 07:40:27'),
+(9, 'Lyle Fisher', 'Vero perferendis pra', 2, 'Autem molestias aliq', 'Facilis corrupti do', 'Veniam explicabo I', 'Aut ut quia doloremq', '2001-08-04', '1998-04-22', '2009-05-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new', NULL, '', '2022-06-04 07:40:31', '2022-06-04 07:40:31');
 
 -- --------------------------------------------------------
 
