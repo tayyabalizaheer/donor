@@ -1,6 +1,22 @@
 @csrf
 
 <div class="form-group">
+    <label for="supervisor">Current step *</label>
+    <select class="form-control" name="step" data-value="{{ old('step',$project->step) }}">
+        <option value="">Select step</option>
+        <option value="Site Assessment">Site Assessment</option>
+        <option value="Technical Assessment">Technical Assessment</option>
+        <option value="Community Mobilization">Community Mobilization</option>
+        <option value="Project Budget Head clearance & Budget Marking">Project Budget Head clearance & Budget Marking</option>
+        <option value="Procurement">Procurement</option>
+        <option value="Installation">Installation</option>
+    </select>
+    @error('supervisor')
+    <span class="text-danger">{{$message}} </span>
+    @enderror
+</div>
+
+<div class="form-group">
     <label for="completion_date">Completion Date</label>
     <input type="date" name="completion_date" id="completion_date" class="form-control"
         value="{{ old('completion_date',$project->completion_date) }}">

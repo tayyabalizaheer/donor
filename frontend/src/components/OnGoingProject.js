@@ -28,6 +28,7 @@ const OnGoingProject = () => {
                                     <th scope='col'>District</th>
                                     <th scope='col'>Tehsil</th>
                                     <th scope='col'>Area</th>
+                                    <th scope='col'>Step</th>
                                     <th scope='col'>Tentative Completion Date</th>
                                     <th scope='col'>Project Supervisor</th>
                                     <th scope='col'>Project Coordinator</th>
@@ -40,7 +41,8 @@ const OnGoingProject = () => {
                                         <td>{ project.name }</td>
                                         <td>{ project.district }</td>
                                         <td>{ project.tehsil }</td>
-                                        <td>{ project.area }</td>
+                                        <td>{project.area}</td>
+                                        <td>{project.step}</td>
                                         <td>{ project.completion_date}</td>
                                         <td>{ project.supervisor_user.name ?? ''}</td>
                                         <td>{ project.coordinator_user.name ?? ''}</td>

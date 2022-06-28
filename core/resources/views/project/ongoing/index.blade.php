@@ -21,6 +21,7 @@
                     <th>District</th>
                     <th>Tehsil</th>
                     <th>Area</th>
+                    <th>Step</th>
                     <th>Tentive Completion Date</th>
                     <th>Project Supervisor</th>
                     <th>Project Coordinator</th>
@@ -33,6 +34,7 @@
                         <td>{{ $project->district }}</td>
                         <td>{{ $project->tehsil }}</td>
                         <td>{{ $project->area }}</td>
+                        <td>{{ $project->step }}</td>
                         <td>{{ $project->completion_date }}</td>
                         <td>{{ $project->supervisorUser->name ?? '' }}</td>
                         <td>{{ $project->coordinatorUser->name ?? '' }}</td>
