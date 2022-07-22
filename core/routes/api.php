@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\ComplaintController;
 use App\Http\Controllers\Api\MaintenanceController;
 use App\Http\Controllers\Api\RehabilitationController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Api\ReportController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/login', [LoginController::class, 'index']);
 
 Route::get('/projects/{status}', [
     ProjectController::class, 'index'

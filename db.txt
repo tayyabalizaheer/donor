@@ -1,0 +1,2 @@
+INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES ('6', 'donor', 'web', NULL, NULL);
+ALTER TABLE `users` ADD `apitoken` VARCHAR(255) NULL AFTER `status`;
