@@ -46,9 +46,12 @@ const Header = () => {
                             <li className="nav-item">
                                 {
                                     Auth() ? (
-                                        <button onClick={Logout}>logout</button>
+                                        <>
+                                            <Link  className='mr-3 btn btn-primary' to="/profile">profile</Link>
+                                            <button className='mr-3 btn btn-danger'  onClick={Logout}>logout</button>
+                                        </>
                                     ): (
-                                        <Link to="/login">Login</Link>
+                                        <Link  className='mr-3 btn btn-success' to="/login">Login</Link>
                                     )
 
                                 }

@@ -1,13 +1,11 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom';
+import { Auth } from '../utils/Function';
 
-export const AuthMiddleware = ({
-    auth,
-    redirectPath = '/login',
-    children,
-}) => {
-    if (!auth) {
-        return <Navigate to={redirectPath} replace />;
+export const AuthMiddleware = ({children}) => {
+
+    if (!Auth()) {
+        return <Navigate to='/login' replace />;
     }
 
     return children;

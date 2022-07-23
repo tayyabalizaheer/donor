@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { User } from "../utils/Function";
 const OnGoingProject = () => {
     const [projects, setProjects] = useState([]);
     useEffect(() => {
         const getProjects = async () => {
             const url = process.env.REACT_APP_API_URL + "projects/on-going";
-            const response = await fetch(url );
+            const response = await fetch(url,
+                {
+                    headers: {
+                        'apitoken': User().apitoken,
+                    },
+                }
+            );
             const dataJson = await response.json();
-            setProjects(dataJson.data);
-            console.log(dataJson);
+            if (response.status===200)setProjects(dataJson.data);
+            else if (response.status===403){
+                localStorage.setItem('user', '');
+                navigator('/');                
+            }
         };
         getProjects();
     }, []);

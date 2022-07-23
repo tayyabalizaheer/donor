@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ApiToken
 {
@@ -16,6 +17,20 @@ class ApiToken
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $apitoken = $request->header('apitoken');
+        if($apitoken){
+            $user = User::where('apitoken',$apitoken)->first();
+            if($user){
+                $request->merge([
+                    'user' => $user
+                ]);
+                return $next($request);
+            }
+
+        }
+        return response()->json([
+            'success' => false,
+            'message' => "Unauthorized Access"
+        ],403);
     }
 }

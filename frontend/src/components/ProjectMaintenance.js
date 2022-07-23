@@ -9,7 +9,11 @@ const ProjectMaintenance = () => {
             const url = process.env.REACT_APP_API_URL + "projects/maintenance/"+id;
             const response = await fetch(url );
             const dataJson = await response.json();
-            setProjects(dataJson.data);
+            if (response.status === 200) setProjects(dataJson.data);
+            else if (response.status === 403) {
+                localStorage.setItem('user', '');
+                navigator('/');
+            }
             
         };
         getProjects();

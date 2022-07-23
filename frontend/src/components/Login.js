@@ -23,10 +23,11 @@ const Login = () => {
             body: payload
         });
         const dataJson = await response.json();
-        // setProjects(dataJson.data);
-        localStorage.setItem('user', JSON.stringify(dataJson));
-        navigate('/');
-        console.log(dataJson);
+        console.log(dataJson.data);
+        if (dataJson.success){
+            localStorage.setItem('user', JSON.stringify(dataJson.data));
+            navigate('/');
+        }
     }
     const convertFormToJSON = (form) =>{
         return $(form)
