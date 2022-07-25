@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import toastr from 'toastr';
+import 'toastr/build/toastr.min.css'
 const Login = () => {
     // const [projects, setProjects] = useState([]);
     const navigate = useNavigate();
