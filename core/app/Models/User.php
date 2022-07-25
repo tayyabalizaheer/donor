@@ -50,4 +50,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = ['profile_path'];
+
+    public function getProfilePathAttribute()
+    {
+        return asset('uploads/thumbnail/'.$this->profile);
+    }
 }

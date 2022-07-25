@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import $ from 'jquery';
-
+import toastr from 'toastr';
 const Login = () => {
     // const [projects, setProjects] = useState([]);
     const navigate = useNavigate();
@@ -26,7 +26,13 @@ const Login = () => {
         console.log(dataJson.data);
         if (dataJson.success){
             localStorage.setItem('user', JSON.stringify(dataJson.data));
+            toastr.success('Login Successfully');
             navigate('/');
+        } else {
+            if (response.status === 401)
+                toastr.error(dataJson.message);
+            else
+                toastr.error("Something went wrong!");
         }
     }
     const convertFormToJSON = (form) =>{

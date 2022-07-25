@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import { User } from "../utils/Function";
-
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css'
 const Login = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState(User());
@@ -18,14 +19,22 @@ const Login = () => {
             body: payload
         });
         const dataJson = await response.json();
-        if (response.status === 200) localStorage.setItem('user', JSON.stringify(dataJson.data));
+        if (response.status === 200) {
+            localStorage.setItem('user', JSON.stringify(dataJson.data));
+            toastr.success(dataJson.message);
+        }
         else if (response.status === 403) {
             localStorage.setItem('user', '');
+            toastr.error(dataJson.message);
             navigator('/');
+        }else{
+            toastr.error(dataJson.message);
         }
-        console.log(dataJson);
     }
-    
+    const loadFile =  (event) => {
+        var image = document.getElementById('profile');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
     return (
         <div className='row'>
             <div className="col-12">
@@ -38,8 +47,8 @@ const Login = () => {
                             <div className="col-12 col-md-6">
                                 <form onSubmit={handleLoginSubmit}>
                                     <div className="mb-3">
-                                        <img src={user.profile_path} width="200px" alt="" />
-                                        <input type="file" className="form-control" id="profile" name="profile"/>
+                                        <img id="profile" src={user.profile_path} width="200px" alt=""  />
+                                        <input type="file" className="form-control" id="profile" name="profile" onChange={loadFile} />
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label" htmlFor="fullname">Full Name</label>
