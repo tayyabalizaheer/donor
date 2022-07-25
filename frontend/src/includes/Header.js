@@ -1,6 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Auth } from '../utils/Function';
+
 const Header = () => {
+
+    const navigator = useNavigate();
+    const Logout = () => {
+        localStorage.setItem('user', '');
+        navigator('/');
+    }
+    console.log(Auth());
     return (
         <header className="topbar" data-navbarbg="skin6">
             {/* <div className="preloader">
@@ -25,14 +34,29 @@ const Header = () => {
                         <li className="nav-item">
                             <Link to="/">Home</Link>
                         </li>
+
+                        
                
                         
                     </ul>
                    
                     <ul className="navbar-nav float-right">
         
-                        <li className="nav-item">
+                        <li className="nav-item mr-5">
+                            <li className="nav-item">
+                                {
+                                    Auth() ? (
+                                        <>
+                                            <Link  className='mr-3 btn btn-primary' to="/profile">profile</Link>
+                                            <button className='mr-3 btn btn-danger'  onClick={Logout}>logout</button>
+                                        </>
+                                    ): (
+                                        <Link  className='mr-3 btn btn-success' to="/login">Login</Link>
+                                    )
 
+                                }
+                                
+                            </li>
                         </li>
                        
                     </ul>

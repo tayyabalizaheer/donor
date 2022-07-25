@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import { User } from "../utils/Function";
 const ProjectComplaint = () => {
     const { id } = useParams();
     const [projects, setProjects] = useState([]);
@@ -7,9 +8,18 @@ const ProjectComplaint = () => {
         const getProjects = async () => {
             console.log(id);
             const url = process.env.REACT_APP_API_URL + "projects/complaint/"+id;
-            const response = await fetch(url );
+            const response = await fetch(url,
+                {
+                    headers: {
+                        // 'apitoken': User().apitoken,
+                    },
+            });
             await response.json().then(async(res) =>{
-                setProjects(res.data);
+                if (response.status === 200) setProjects(res.data);
+                else if (response.status === 403) {
+                    localStorage.setItem('user', '');
+                    navigator('/');
+                }
             } );
             
         };

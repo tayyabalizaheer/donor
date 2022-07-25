@@ -11,7 +11,6 @@
     <div class="input-group input-group-merge">
         <input type="text" id="email" class="form-control" name="email" value="{{ old('email',$user->email) }}">
     </div>
-    <div class="form-text">You can use letters, numbers &amp; periods</div>
     @error('email')
         <span class="text-danger">{{ $message }}</span>
     @enderror

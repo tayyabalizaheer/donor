@@ -8,7 +8,11 @@ const MaintenanceDetail = () => {
             const url = process.env.REACT_APP_API_URL + "maintenance/details/"+id;
             const response = await fetch(url );
             await response.json().then(async (res) => {
-                setProject(res);
+                if (response.status === 200) setProject(res);
+                else if (response.status === 403) {
+                    localStorage.setItem('user', '');
+                    navigator('/');
+                }
             });
         };
         getProjects();
