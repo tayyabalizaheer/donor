@@ -10,6 +10,7 @@
         <option value="Project Budget Head clearance & Budget Marking">Project Budget Head clearance & Budget Marking</option>
         <option value="Procurement">Procurement</option>
         <option value="Installation">Installation</option>
+        <option value="others">Others</option>
     </select>
     @error('supervisor')
     <span class="text-danger">{{$message}} </span>
@@ -21,6 +22,19 @@
     <input type="date" name="completion_date" id="completion_date" class="form-control"
         value="{{ old('completion_date',$project->completion_date) }}">
     @error('completion_date')
+    <span class="text-danger">{{$message}} </span>
+    @enderror
+</div>
+
+<div class="form-group">
+    <label for="donor">Donor *</label>
+    <select class="form-control" name="donor_id" data-value="{{ old('donor',$project->donor) }}">
+        <option value="">Select donor</option>
+        @foreach ($donors as $donor)
+        <option value="{{ $donor->id }}">{{ $donor->name }}</option>
+        @endforeach
+    </select>
+    @error('donor_id')
     <span class="text-danger">{{$message}} </span>
     @enderror
 </div>

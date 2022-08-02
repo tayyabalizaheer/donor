@@ -17,7 +17,7 @@
                     <th>Email</th>
                     <th>Mobile</th>
                     <th>Role</th>
-                    <th>Status</th>
+                    {{-- <th>Status</th> --}}
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -32,7 +32,7 @@
                             {{$role}} {{$loop->last?'':', '}}
                             @endforeach
                         </td>
-                        <td>
+                        {{-- <td>
                             @if ($user->status==0)
                                 <span class="badge bg-label-warning me-1">Pending</span>
                             @elseif($user->status==1)
@@ -40,7 +40,7 @@
                             @elseif($user->status==2)
                                 <span class="badge bg-label-danger me-1">Block</span>
                             @endif
-                        </td>
+                        </td> --}}
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

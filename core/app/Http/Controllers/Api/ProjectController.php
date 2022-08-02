@@ -11,7 +11,12 @@ class ProjectController extends Controller
     //
     public function index(Request $request,$status='new')
     {
-        $projects = Project::with(['requesterUser','supervisorUser','coordinatorUser'])->where('status',$status)->paginate(50);
+        $projects_q = Project::with(['requesterUser','supervisorUser','coordinatorUser'])->where('status',$status);
+
+        if($status!='new'){
+            $projects_q->where('donor_id',$request->user->id);
+        }
+        $projects = $projects_q->paginate(50);
         $projects->success = true;
         return response()->json($projects, 200);
     }

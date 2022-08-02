@@ -63,8 +63,13 @@ class ProjectController extends Controller
                 $q->where('name', 'coordinator');
             }
         )->get();
+        $donors = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'donor');
+            }
+        )->get();
         $project = Project::find($id);
-        return view('project.edit',compact('requesters','supervisors','coordinators','project'));
+        return view('project.edit',compact('requesters','supervisors','coordinators','donors','project'));
     }
     public function update(Request $request,$id)
     {
@@ -81,13 +86,20 @@ class ProjectController extends Controller
                 $q->where('name', 'supervisor');
             }
         )->get();
+
+        $donors = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'donor');
+            }
+        )->get();
+
         $coordinators = User::whereHas(
             'roles', function($q){
                 $q->where('name', 'coordinator');
             }
         )->get();
         $project = Project::find($id);
-        return view('project.ongoing.create',compact('supervisors','coordinators','project'));
+        return view('project.ongoing.create',compact('supervisors','coordinators','project','donors'));
     }
 
     public function storeOngoing(Request $request,$id)
