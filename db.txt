@@ -1,6 +1,6 @@
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES ('6', 'donor', 'web', NULL, NULL);
 ALTER TABLE `users` ADD `apitoken` VARCHAR(255) NULL AFTER `status`;
 ALTER TABLE `users` ADD `profile` VARCHAR(255) NULL AFTER `name`;
-
-
 ALTER TABLE `projects` ADD `donor_id` INT NULL AFTER `supervisor`;
+
+ALTER TABLE `projects` CHANGE `step` `step` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL;
