@@ -3,3 +3,4 @@
 frontend/.env
 frontend/.env
 package-lock.json
+core/composer.lock
